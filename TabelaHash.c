@@ -6,7 +6,7 @@ typedef struct NO *ArvAVL;
 
 struct hash {
     int qtd, TABLE_SIZE;
-    ArvAVL **itens;
+    Lista **itens;
 };
 
 Hash* criaHash(int TABLE_SIZE) {
@@ -14,7 +14,7 @@ Hash* criaHash(int TABLE_SIZE) {
     if(ha != NULL) {
         int i;
         ha->TABLE_SIZE = TABLE_SIZE;
-        ha->itens = (ArvAVL**) malloc(TABLE_SIZE * sizeof(ArvAVL*));
+        ha->itens = (Lista**) malloc(TABLE_SIZE * sizeof(Lista*));
         if(ha->itens == NULL) {
             free(ha);
             return NULL;
@@ -100,72 +100,32 @@ int valorString(char *str) {
     return valor;
 }
 
-/*
-Tratamento de colisão: Sondagem Linear
-- Tenta espalhar os elementos de forma sequencial a partir da posição calculada
-utilizando a "função de hashing".
-Funcionamento:
-- Primeiro elemento (i = 0) é colocado na "posição" obtida pela "função de hashing":
-"pos"
-- Segundo elemento (nova colisão) é colocado na posição "pos+1"
-- Terceiro elemento (nova colisão) é colocado na posição "po+2"
-- Apesar de ser simples, essa abordagem apresenta um problema conhecido como "agrupamento
-primário".
-Agrupamento primário:
-- Presença de longas sequências de posições ocupadas
-- A medida que a tabela hash fica cheia, o tempo para incluir ou buscar um elemento
-aumenta
-- Quanto maior o agrupamento primário, maior a probabilidade de aumentá-lo ainda
-mais com a inserção de u novo elemento, diminuindo o desempenho da tabela.
-*/
-
-int sondagemLinear(int pos, int i, int TABLE_SIZE) {
-    return ((pos + i) & 0x7FFFFFFF) % TABLE_SIZE;
+int insereHash_SemColisao(Hash *ha, struct discagem ddd, ArvAVL *arv) {
+    if(ha == NULL || ha->qtd == ha->TABLE_SIZE)
+        return 0;
+    int chave = ddd.prefixo;
+    int i, pos;
+    pos = chaveDivisao(chave, ha->TABLE_SIZE);
+    if(ha->itens[pos] == NULL) {
+        ha->itens[pos] = cria_lista();
+    }
+    int result = insere_lista_final(ha->itens[pos], arv, ddd);
+    if(result == 0) {
+        return 0;
+    }
+    ha->qtd++;
+    return 1;
 }
 
-/*
-Tratamento de colisão: Sondagem Quadrática
-- Tenta espalhar os elementos utilizando uma equação do segundo grau
-"pos + (c1 * i) + (c2 *i²)"
-onde
-- "pos" é a posição obtida pela "função de hashing"
-- "i" é a tentativa atual
-- "c1" e "c2" são os coeficientes da equação
-Funcionamento:
-- Primeiro elemento (i = 0) é colocado na "posição" obtida pela "função de hashing":
-"pos"
-- Segundo elemento (nova colisão) é colocado na posição "pos + (c1 * 1) + (c2 * 1²)"
-- Terceito elemento (nova colisão) é colocado na posição "pos + (c1 * 2) + (c2 * 2²)"
-- Resolve o problema de "agrupamento primário"
-- Gera um problema conhecido como "agrupamento secundário"
-Agrupamento secundário:
-- Isso ocorre por que todas as "chaves" que produzam a mesma "posição" inicial na tabela
-hash também produzem as mesmas "posições" na "sondagem quadrática"
-- Felizmente, a degradação produzida na tabela é menor que a produzida pelos "agrupamentos
-primários"
-*/
-
-int sondagemQuadratica(int pos, int i, int TABLE_SIZE) {
-    pos = pos + 2*i + 5*i*i;
-    return (pos & 0x7FFFFFFF) % TABLE_SIZE;
-}
-
-/*
-Tratamento de colisão: Duplo Hash
-- Espalhamento duplo
-- Tenta espalhar os elementos utilizando duas "funções de hashing"
-"H1 + i * H2"
-Onde
-- "H1" é utilizada para calcular a "posição inicial" do elemento
-- "H2" é utilizada para calcular os "deslocamentos" em relação a "posição inicial"
-no caso de uma "colisão"
-Funcionamento:
-- Primeiro elemento (i = 0) é colocado na "posição" obtida por "H1"
-- Segundo elemento (colisão) é colocado na posição "H1 + 1 * H2"
-- Terceiro elemento (nova colisão) é colocado na posição "H1 + 2 * H2"
-*/
-
-int duploHash(int H1, int chave, int i, int TABLE_SIZE) {
-    int H2 = chaveDivisao(chave, TABLE_SIZE-1) + 1;
-    return ((H1 + i * H2) & 0x7FFFFFFF) & TABLE_SIZE;
+int buscaHash_SemColisao(Hash *ha, int prefixo, ArvAVL *arv) {
+    if(ha == NULL)
+        return 0;
+    int pos = chaveDivisao(prefixo, ha->TABLE_SIZE);
+    if(ha->itens[pos] == NULL)
+        return 0;
+    int result = busca_lista_ddd(ha->itens[pos], prefixo, arv);
+    if(result == 1) {
+        return 1;
+    }
+    return 0;
 }
