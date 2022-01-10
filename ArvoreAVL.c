@@ -96,18 +96,18 @@ void posOrdem_ArvAVL(ArvAVL *raiz) {
     }
 }
 
-int consulta_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
+int consulta_ArvAVL(ArvAVL *raiz, int numero) {
     if(raiz == NULL)
         return 0;
     struct NO *atual = *raiz;
     while(atual != NULL) {
-        if(pessoa.numero == atual->pessoa.numero) {
+        if(numero == atual->pessoa.numero) {
             printf("%s\n", atual->pessoa.nome);
             printf("%s\n", atual->pessoa.endereco);
             printf("%d\n", atual->pessoa.numero);
             return 1;
         }
-        if(pessoa.numero > atual->pessoa.numero)
+        if(numero > atual->pessoa.numero)
             atual = atual->dir;
         else
             atual = atual->esq;

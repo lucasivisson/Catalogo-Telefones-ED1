@@ -16,4 +16,4 @@ int totalNO_ArvAVL(ArvAVL *raiz);
 void preOrdem_ArvAVL(ArvAVL *raiz);
 void emOrdem_ArvAVL(ArvAVL *raiz);
 void posOrdem_ArvAVL(ArvAVL *raiz);
-int consulta_ArvAVL(ArvAVL *raiz, struct dados pessoa);
+int consulta_ArvAVL(ArvAVL *raiz, int numero);
