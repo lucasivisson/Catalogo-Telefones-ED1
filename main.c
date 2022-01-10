@@ -21,7 +21,10 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
         {
             ArvAVL *arv85 = cria_ArvAVL();
             struct discagem ddd = {85, "Ceará", "Fortaleza e Região Metropolitana"};
-            struct dados pessoa = {numero, *nome, *endereco};
+            struct dados pessoa;
+            pessoa.numero = numero;
+            strcpy(pessoa.nome, nome);
+            strcpy(pessoa.endereco, endereco);
             int insere = insere_ArvAVL(arv85, pessoa);
             if(insere == 1) {
                 int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv85);
