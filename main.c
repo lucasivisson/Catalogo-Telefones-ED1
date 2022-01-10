@@ -7,7 +7,7 @@
 
 int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
     int numero;
-    printf("Digite o número do telefone: ");
+    printf("Digite o numero do telefone: ");
     scanf(" %d", &numero);
     char nome[50];
     printf("Digite o nome: ");
@@ -37,7 +37,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
         }
 
         default:
-            printf("DDD informado não é válido");
+            printf("DDD informado nao e valido");
     }
 }
 
@@ -49,18 +49,54 @@ int busca_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arv2) {
     return 1;
 }
 
+int impressao_ArvAVL(Hash *ha, int ddd, ArvAVL *arv3){
+    int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arv3);
+    if (consultaHashListaArv == 1){
+        int resposta;
+
+        do{
+            printf("Escolha uma opcao:\n");
+            printf("1 - Pre-Ordem\n");
+            printf("2 - Em-Ordem\n");
+            printf("3 - Pos-Ordem\n");
+            printf("4 - Sair\n");
+            scanf(" %d", &resposta);
+
+            switch (resposta){
+            case 1:
+                preOrdem_ArvAVL(arv3);
+                break;
+
+            case 2:
+                emOrdem_ArvAVL(arv3);
+                break;
+
+            case 3:
+                posOrdem_ArvAVL(arv3);
+                break;
+            
+            default:
+                printf("Digite uma opcao valida!\n");
+                break;
+            }
+        }while(resposta != 4);
+        
+    }
+    return 0;
+}
+
 int main() {
     Hash *ha = criaHash(1427);
     int escolha;
-    printf("Bem vindo ao Catálogo Nacional de Telefones e Endereços\n");
+    printf("Bem vindo ao Catalogo Nacional de Telefones e Endereços\n");
 
     do{
-        printf("Escolha a opção que você deseja escolher: \n");
-        printf("1 - Inserir uma pessoa no catálogo\n");
-        printf("2 - Buscar pessoa no catálogo pelo telefone\n");
-        printf("3 - Remover pessoa do catáogo\n");
-        printf("4 - Listar todos os números de telefone por DDD\n");
-        printf("5 - Gerar lista telefônica por DDD\n");
+        printf("Escolha a opcao que você deseja escolher: \n");
+        printf("1 - Inserir uma pessoa no catalogo\n");
+        printf("2 - Buscar pessoa no catalogo pelo telefone\n");
+        printf("3 - Remover pessoa do cataogo\n");
+        printf("4 - Listar todos os numeros de telefone por DDD\n");
+        printf("5 - Gerar lista telefonica por DDD\n");
         printf("6 - Sair\n");
         scanf(" %d", &escolha);
 
@@ -68,13 +104,13 @@ int main() {
             case 1:
             {
                 int ddd;
-                printf("Digite o número do DDD da pessoa a ser inserida: ");
+                printf("Digite o numero do DDD da pessoa a ser inserida: ");
                 scanf(" %d", &ddd);
                 int resultInserir = inserir_ArvAVL_DDD(ddd, ha);
-                if(resultInserir) {
-                    printf("Pessoa inserida com sucesso!");
+                if(resultInserir == 1) {
+                    printf("Pessoa inserida com sucesso!\n");
                 }else{
-                    printf("Erro ao inserir pessoa!");
+                    printf("Erro ao inserir pessoa!\n");
                 }
             break;
             }
@@ -83,18 +119,29 @@ int main() {
             {
                 int numero;
                 ArvAVL *arv2 = cria_ArvAVL();
-                printf("Digite o número do telefone da pessoa a ser buscada: ");
+                
+                printf("Digite o numero do telefone da pessoa a ser buscada: ");
                 scanf(" %d", &numero);
                 busca_ArvAVL(ha, 85, numero, arv2); 
             break;
             }
 
             case 3:
+            {
+               
             break;
+            }
 
             case 4:
-            break;
+            {
+                int ddd;
+                ArvAVL *arv3 = cria_ArvAVL();
 
+                printf("Digite o numero do DDD:\n");
+                scanf(" %d", &ddd);
+                impressao_ArvAVL(ha, ddd, arv3);
+            break;
+            }
             case 5:
             break;
 
@@ -103,7 +150,7 @@ int main() {
             break;
 
             default:
-                printf("Opção selecionada não é válida\n");
+                printf("Opcao selecionada nao e valida\n");
         }
     } while(escolha != 6);
     /*
