@@ -7,7 +7,7 @@ struct dados {
 typedef struct NO *ArvAVL;
 
 int insere_ArvAVL(ArvAVL *raiz, struct dados pessoa);
-int remove_ArvAVL(ArvAVL *raiz, struct dados pessoa);
+int remove_ArvAVL(ArvAVL *raiz, int numero);
 ArvAVL* cria_ArvAVL();
 void libera_ArvAVL(ArvAVL *raiz);
 int estaVazia_ArvAVL(ArvAVL *raiz);

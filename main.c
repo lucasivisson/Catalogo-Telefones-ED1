@@ -1479,8 +1479,24 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
 int busca_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arv2) {
     int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arv2);
     if(consultaHashListaArv == 1) {
-        consulta_ArvAVL(arv2, numero);
-    return 1;
+        int resultConsulta = consulta_ArvAVL(arv2, numero);
+        if(resultConsulta == 1)
+            return 1;
+    }
+    return 0;
+}
+
+int excluiPessoa_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arvExclusao) {
+    int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arvExclusao);
+    if(consultaHashListaArv == 1) {
+        int resultAlturaAntes = altura_ArvAVL(arvExclusao);
+        int resultExclusao = remove_ArvAVL(arvExclusao, numero);
+        if(resultExclusao == 1) {
+            printf("A altura da arvore antes da exclusao era: %d\n", resultAlturaAntes);
+            int resultAlturaDepois = altura_ArvAVL(arvExclusao);
+            printf("A altura da arvore depois da exclusao e: %d\n", resultAlturaDepois);
+            return 1;
+        }
     }
     return 0;
 }
@@ -1561,7 +1577,6 @@ int validarDDD(int ddd) {
     return 0;
 }
 
-
 int main() {
     Hash *ha = criaHash(1427);
     int escolha;
@@ -1606,11 +1621,34 @@ int main() {
                 }
                 printf("Digite o numero do telefone da pessoa a ser buscada: \n");
                 scanf(" %d", &numero);
-                busca_ArvAVL(ha, ddd, numero, arv2); 
+                int resultBusca = busca_ArvAVL(ha, ddd, numero, arv2);
+                if(resultBusca != 1) {
+                    printf("Pessoa nao esta cadastrada no catalogo\n");
+                    break;
+                }
             break;
             }
 
             case 3:
+            {
+                int numero, ddd;
+                ArvAVL *arvExclusao = cria_ArvAVL();
+                printf("Digite o DDD do telefone da pessoa a ser buscada: \n");
+                scanf(" %d", &ddd);
+                int resultDDD = validarDDD(ddd);
+                if(resultDDD != 1) {
+                    printf("Digite um DDD valido\n");
+                    break;
+                }
+                printf("Digite o numero do telefone da pessoa a ser buscada: \n");
+                scanf(" %d", &numero);
+                int resultExclusao = excluiPessoa_ArvAVL(ha, ddd, numero, arvExclusao);
+                if(resultExclusao != 1) {
+                    printf("Pessoa nao esta cadastrada no catalogo\n");
+                    break;
+                }
+                printf("Pessoa removida com sucesso!\n");
+            }
             break;
             
 

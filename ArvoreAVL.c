@@ -222,14 +222,14 @@ struct NO* procuraMenor(struct NO* atual) {
     return no1;
 }
 
-int remove_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
+int remove_ArvAVL(ArvAVL *raiz, int numero) {
     if(*raiz == NULL) { //valor nao existe
         printf("valor nao existe!!\n");
         return 0;
     }
     int res;
-    if(pessoa.numero < (*raiz)->pessoa.numero) {
-        if((res = remove_ArvAVL(&(*raiz)->esq, pessoa)) == 1) {
+    if(numero < (*raiz)->pessoa.numero) {
+        if((res = remove_ArvAVL(&(*raiz)->esq, numero)) == 1) {
             if(fatorBalanceamento_NO(*raiz) >= 2) {
                 if(altura_NO((*raiz)->dir->esq) <= altura_NO((*raiz)->dir->dir))
                     RotacaoRR(raiz);
@@ -238,8 +238,8 @@ int remove_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
             }
         }
     }
-    if((*raiz)->pessoa.numero < pessoa.numero) {
-        if((res = remove_ArvAVL(&(*raiz)->dir, pessoa)) == 1) {
+    if((*raiz)->pessoa.numero < numero) {
+        if((res = remove_ArvAVL(&(*raiz)->dir, numero)) == 1) {
             if(fatorBalanceamento_NO(*raiz) >= 2) {
                 if(altura_NO((*raiz)->esq->dir) <= altura_NO((*raiz)->esq->esq))
                     RotacaoLL(raiz);
@@ -248,7 +248,7 @@ int remove_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
             }
         }
     }
-    if((*raiz)->pessoa.numero == pessoa.numero) {
+    if((*raiz)->pessoa.numero == numero) {
         if((*raiz)->esq == NULL || (*raiz)->dir == NULL) {
             struct NO *oldNode = (*raiz);
             if((*raiz)->esq != NULL)
@@ -259,7 +259,7 @@ int remove_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
         }else{ //no tem 2 filhos
             struct NO *temp = procuraMenor((*raiz)->dir);
             (*raiz)->pessoa.numero = temp->pessoa.numero;
-            remove_ArvAVL(&(*raiz)->dir, (*raiz)->pessoa);
+            remove_ArvAVL(&(*raiz)->dir, numero);
             if(fatorBalanceamento_NO(*raiz) >= 2) {
                 if(altura_NO((*raiz)->esq->dir) <= altura_NO((*raiz)->esq->esq))
                     RotacaoLL(raiz);
