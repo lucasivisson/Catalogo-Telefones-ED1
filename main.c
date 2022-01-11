@@ -1542,31 +1542,33 @@ int impressao_ArvAVL(Hash *ha, int ddd, ArvAVL *arv3){
 int gerador_numero(){
     int i, n ;
 	
-	srand(time(NULL)); //Função para gerar os numeros aleatorios.
+	srand(rand()); //Gera um valor aleatoria que serve como inicial para a funcao rand() do for.
 	n = 9; //para o primeiro digito ser 9;
 
 	for (i=1; i < 9; i++){
 		n = n * 10; //Adiciona um 0 ao numero para concaternar com os novos numeros gerados.
-		n += rand() % 9; // gera oS numeros no intervalo de 0 a 9.
+		n += rand() % 9; // gera os numeros no intervalo de 0 a 9.
 	}
 
 	return n;   
 }
 
 //ESSA FUNCAO AINDA PRECISA SER REVISADA
-
-int gerar_telefones(Hash *ha, ArvAVL *arv, int ddd){
-    int resp = buscaHash_SemColisao(ha, ddd, arv);
-
+void gerar_telefones(ArvAVL *arv, int ddd){
     int numero[3], i;
 
+    printf("Sugestao de numeros: \n");
     for(i = 0; i < 3; i++){
         numero[i] = gerador_numero();
-        if(consulta_ArvAVL(arv, numero[i]) == 1){
-            printf("%d - %d", i, numero[i]);
-        }else{
+        int res = consulta_ArvAVL(arv, numero[i]);
+
+        if(res != 1){ 
+            /*A funcao de consulta nao retorna o '1', logo a comparacao
+            nao esta funcionando*/
+            printf("%d - %d\n", i, numero[i]);
+        }else
+            printf("Gerando outro numero\n");
             numero[i] = gerador_numero();
-        }
     }
 }
 
@@ -1588,7 +1590,7 @@ int main() {
         printf("2 - Buscar pessoa no catalogo pelo telefone\n");
         printf("3 - Remover pessoa do catalogo\n");
         printf("4 - Listar todos os numeros de telefone por DDD\n");
-        printf("5 - Gerar numero nao cadastrado\n");
+        printf("5 - Gerar numeros nao cadastrados\n");
         printf("6 - Gerar lista telefonica por DDD\n");
         printf("7 - Sair\n");
         scanf(" %d", &escolha);
@@ -1662,15 +1664,20 @@ int main() {
                 impressao_ArvAVL(ha, ddd, arv4);
             break;
             }
-            case 5:
-            {//ESSA PARTE AINDA PRECISA SER REVISADA
-                int ddd;
-                ArvAVL *arv6 = cria_ArvAVL();
 
+            case 5:
+            {
+                ArvAVL *arv6 = cria_ArvAVL();
+                int ddd, res = buscaHash_SemColisao(ha, ddd, arv6);
+                
                 printf("Digite o DDD: ");
                 scanf("%d", &ddd);
 
-                gerar_telefones(ha, arv6, ddd);
+                if(res == 1){
+                    gerar_telefones(arv6, ddd);
+                }else{
+                    printf("O DDD digitado ainda nao foi cadastrado.");
+                }
             }
             break;
 
@@ -1684,6 +1691,7 @@ int main() {
             default:
                 printf("Opcao selecionada nao e valida\n");
         }
+        printf("\n\n");
     } while(escolha != 7);
     /*
     ArvAVL *arv = cria_ArvAVL();
