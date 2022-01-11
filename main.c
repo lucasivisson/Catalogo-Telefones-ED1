@@ -1542,10 +1542,11 @@ int impressao_ArvAVL(Hash *ha, int ddd, ArvAVL *arv3){
 int gerador_numero(){
     int i, n ;
 	
-	srand(rand()); //Gera um valor aleatoria que serve como inicial para a funcao rand() do for.
+	
 	n = 9; //para o primeiro digito ser 9;
 
 	for (i=1; i < 9; i++){
+        srand(rand()); //Gera um valor aleatoria que serve como inicial para a funcao rand() do for.
 		n = n * 10; //Adiciona um 0 ao numero para concaternar com os novos numeros gerados.
 		n += rand() % 9; // gera os numeros no intervalo de 0 a 9.
 	}
@@ -1553,7 +1554,6 @@ int gerador_numero(){
 	return n;   
 }
 
-//ESSA FUNCAO AINDA PRECISA SER REVISADA
 void gerar_telefones(ArvAVL *arv, int ddd){
     int numero[3], i;
 
@@ -1562,13 +1562,11 @@ void gerar_telefones(ArvAVL *arv, int ddd){
         numero[i] = gerador_numero();
         int res = consulta_ArvAVL(arv, numero[i]);
 
-        if(res != 1){ 
-            /*A funcao de consulta nao retorna o '1', logo a comparacao
-            nao esta funcionando*/
-            printf("%d - %d\n", i, numero[i]);
-        }else
-            printf("Gerando outro numero\n");
+        if(res == 1){ 
             numero[i] = gerador_numero();
+        }else{
+            printf("%d - %d\n", i, numero[i]);
+        }
     }
 }
 
