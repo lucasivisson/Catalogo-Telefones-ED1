@@ -1,7 +1,7 @@
 struct dados {
     int numero;
-    char nome[50];
-    char endereco[50];
+    char nome[100];
+    char endereco[100];
 };
 
 typedef struct NO *ArvAVL;

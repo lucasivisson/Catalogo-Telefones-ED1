@@ -3,8 +3,8 @@
 
 struct discagem{
   int prefixo;
-  char estado[50];
-  char regiao[50];
+  char estado[100];
+  char regiao[100];
 };
 
 typedef struct elemento* Lista;
