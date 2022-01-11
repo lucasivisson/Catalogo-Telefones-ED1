@@ -22,7 +22,10 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
         {
             ArvAVL *arv85 = cria_ArvAVL();
             struct discagem ddd = {85, "Ceará", "Fortaleza e Região Metropolitana"};
-            struct dados pessoa = {numero, *nome, *endereco};
+            struct dados pessoa;
+            pessoa.numero = numero;
+            strcpy(pessoa.nome, nome);
+            strcpy(pessoa.endereco, endereco);
             int insere = insere_ArvAVL(arv85, pessoa);
             if(insere == 1) {
                 int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv85);
@@ -1474,11 +1477,12 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
 }
 
 int busca_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arv2) {
-    int consultaHashListaArv = buscaHash_SemColisao(ha, 85, arv2);
-    printf("Consultando arvore na tabela hash: %d\n", consultaHashListaArv);
-    int consulta = consulta_ArvAVL(arv2, numero);
-    printf("Consultando pessoa em ArvoreAVL: %d\n", consulta);
+    int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arv2);
+    if(consultaHashListaArv == 1) {
+        consulta_ArvAVL(arv2, numero);
     return 1;
+    }
+    return 0;
 }
 
 int impressao_ArvAVL(Hash *ha, int ddd, ArvAVL *arv3){
@@ -1550,6 +1554,13 @@ int gerar_telefones(Hash *ha, ArvAVL *arv, int ddd){
     }
 }
 
+int validarDDD(int ddd) {
+    if(ddd == 11 || ddd == 12 || ddd == 13 || ddd == 14 || ddd == 15 || ddd == 16 || ddd == 17 || ddd == 18 || ddd == 19 || ddd == 21 || ddd == 22 || ddd == 24 || ddd == 27 || ddd == 28|| ddd == 31 || ddd == 32 || ddd == 33 || ddd == 34 || ddd == 35 || ddd == 37 || ddd == 38 || ddd == 41 || ddd == 42 || ddd == 43 || ddd == 44 || ddd == 45 || ddd == 46 || ddd == 47 || ddd == 48 || ddd == 51 || ddd == 53 || ddd == 54 || ddd == 55 || ddd == 61 || ddd == 62 || ddd == 63 || ddd == 64 || ddd == 65 || ddd == 66 || ddd == 67 || ddd == 68 || ddd == 69 || ddd == 71 || ddd == 73 || ddd == 74 || ddd == 75 || ddd == 77 || ddd == 79 || ddd == 81 || ddd == 82 || ddd == 83 || ddd == 84 || ddd == 85 || ddd == 86 || ddd == 87 || ddd == 88 || ddd == 89 || ddd == 91 || ddd == 92 || ddd == 93 || ddd == 94 || ddd == 95 || ddd == 96 || ddd == 97 || ddd == 98 || ddd == 99) {
+        return 1;
+    }
+    return 0;
+}
+
 
 int main() {
     Hash *ha = criaHash(1427);
@@ -1584,12 +1595,18 @@ int main() {
 
             case 2:
             {
-                int numero;
+                int numero, ddd;
                 ArvAVL *arv2 = cria_ArvAVL();
-                
-                printf("Digite o numero do telefone da pessoa a ser buscada: ");
+                printf("Digite o DDD do telefone da pessoa a ser buscada: \n");
+                scanf(" %d", &ddd);
+                int resultDDD = validarDDD(ddd);
+                if(resultDDD != 1) {
+                    printf("Digite um DDD valido\n");
+                    break;
+                }
+                printf("Digite o numero do telefone da pessoa a ser buscada: \n");
                 scanf(" %d", &numero);
-                busca_ArvAVL(ha, 85, numero, arv2); 
+                busca_ArvAVL(ha, ddd, numero, arv2); 
             break;
             }
 
