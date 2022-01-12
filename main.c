@@ -16,136 +16,81 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha) {
     char endereco[50];
     printf("Digite o endereço: ");
     scanf(" %s", endereco);
+
+    struct dados pessoa;
+    pessoa.numero = numero;
+    strcpy(pessoa.nome, nome);
+    strcpy(pessoa.endereco, endereco);
     
     switch(ddd) {
         case 85:
         {
-            ArvAVL *arv85 = cria_ArvAVL();
             struct discagem ddd = {85, "Ceará", "Fortaleza e Região Metropolitana"};
-            struct dados pessoa;
-            pessoa.numero = numero;
-            strcpy(pessoa.nome, nome);
-            strcpy(pessoa.endereco, endereco);
-            int insere = insere_ArvAVL(arv85, pessoa);
-            if(insere == 1) {
-                int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv85);
-                if(insereArvTabelaHash == 1)
-                    return 1;
-                else{
-                    libera_ArvAVL(arv85);
-                    return 0;
-                }
+            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            if(inserePessoaTabelaHash == 1)
+                return 1;
+            else{
+                return 0;
             }
-            return 0;
         break;
         }
         case 11:
         {
-            ArvAVL *arv11 = cria_ArvAVL();
             struct discagem ddd = {11, "São Paulo", "São Paulo e Região Metropolitana"};
-            struct dados pessoa;
-            pessoa.numero = numero;
-            strcpy(pessoa.nome, nome);
-            strcpy(pessoa.endereco, endereco);
-            int insere = insere_ArvAVL(arv11, pessoa);
-            if(insere == 1) {
-                int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv11);
-                if(insereArvTabelaHash == 1)
-                    return 1;
-                else{
-                    libera_ArvAVL(arv11);
-                    return 0;
-                }
+            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            if(inserePessoaTabelaHash == 1)
+                return 1;
+            else{
+                return 0;
             }
-            return 0;
         break;
         }  
 
-       case 12:
+        case 12:
         {
-            ArvAVL *arv12 = cria_ArvAVL();
             struct discagem ddd = {12, "São Paulo", "são José do Campos e Taubaté"};
-            struct dados pessoa;
-            pessoa.numero = numero;
-            strcpy(pessoa.nome, nome);
-            strcpy(pessoa.endereco, endereco);
-            int insere = insere_ArvAVL(arv12, pessoa);
-            if(insere == 1) {
-                int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv12);
-                if(insereArvTabelaHash == 1)
-                    return 1;
-                else{
-                    libera_ArvAVL(arv12);
-                    return 0;
-                }
+            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            if(inserePessoaTabelaHash == 1)
+                return 1;
+            else{
+                return 0;
             }
-            return 0;
         break;
         }
 
-         case 13:
+        case 13:
         {
-            ArvAVL *arv13 = cria_ArvAVL();
             struct discagem ddd = {13, "São Paulo", "Santos e Baixada Santista"};
-            struct dados pessoa;
-            pessoa.numero = numero;
-            strcpy(pessoa.nome, nome);
-            strcpy(pessoa.endereco, endereco);
-            int insere = insere_ArvAVL(arv13, pessoa);
-            if(insere == 1) {
-                int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv13);
-                if(insereArvTabelaHash == 1)
-                    return 1;
-                else{
-                    libera_ArvAVL(arv13);
-                    return 0;
-                }
+            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            if(inserePessoaTabelaHash == 1)
+                return 1;
+            else{
+                return 0;
             }
-            return 0;
         break;
         }
 
-         case 14:
+        case 14:
         {
-            ArvAVL *arv14 = cria_ArvAVL();
             struct discagem ddd = {14, "São Paulo", "Bauru e Região Metropolitana"};
-            struct dados pessoa;
-            pessoa.numero = numero;
-            strcpy(pessoa.nome, nome);
-            strcpy(pessoa.endereco, endereco);
-            int insere = insere_ArvAVL(arv14, pessoa);
-            if(insere == 1) {
-                int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv14);
-                if(insereArvTabelaHash == 1)
-                    return 1;
-                else{
-                    libera_ArvAVL(arv14);
-                    return 0;
-                }
+            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            if(inserePessoaTabelaHash == 1)
+                return 1;
+            else{
+                return 0;
             }
-            return 0;
         break;
         }
 
-         case 15:
+        case 15:
         {
-            ArvAVL *arv15 = cria_ArvAVL();
             struct discagem ddd = {15, "São Paulo", "Itapetininga, Itapeva e Sorocaba"};
-            struct dados pessoa;
-            pessoa.numero = numero;
-            strcpy(pessoa.nome, nome);
-            strcpy(pessoa.endereco, endereco);
-            int insere = insere_ArvAVL(arv15, pessoa);
-            if(insere == 1) {
-                int insereArvTabelaHash = insereHash_SemColisao(ha, ddd, arv15);
-                if(insereArvTabelaHash == 1)
-                    return 1;
-                else{
-                    libera_ArvAVL(arv15);
-                    return 0;
-                }
+            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            if(inserePessoaTabelaHash == 1)
+                return 1;
+            else{
+                return 0;
             }
-            return 0;
         break;
         }
 

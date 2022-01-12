@@ -1,6 +1,15 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "TabelaHash.h"
+
+struct elemento{
+  struct discagem ddd;
+  ArvAVL *arv;
+  struct elemento *prox;
+};
+
+typedef struct elemento Elem;
 
 typedef struct NO *ArvAVL;
 
@@ -100,7 +109,7 @@ int valorString(char *str) {
     return valor;
 }
 
-int insereHash_SemColisao(Hash *ha, struct discagem ddd, ArvAVL *arv) {
+int insereHash_SemColisao(Hash *ha, struct discagem ddd, struct dados pessoa) {
     if(ha == NULL || ha->qtd == ha->TABLE_SIZE)
         return 0;
     int chave = ddd.prefixo;
@@ -109,12 +118,33 @@ int insereHash_SemColisao(Hash *ha, struct discagem ddd, ArvAVL *arv) {
     if(ha->itens[pos] == NULL) {
         ha->itens[pos] = cria_lista();
     }
-    int result = insere_lista_final(ha->itens[pos], arv, ddd);
-    if(result == 0) {
+    Elem *aux;
+    aux = *ha->itens[pos];
+    int arvoreExiste = 0;
+    while(aux != NULL){
+        if(aux->ddd.prefixo == ddd.prefixo) {
+            int resultInsereArv = insere_ArvAVL(aux->arv, pessoa);
+            if(resultInsereArv) {
+                arvoreExiste = 1;
+                ha->qtd++;
+                return 1;
+            }
+        }
+      aux = aux->prox;
+    }
+    if(arvoreExiste == 0) {
+        ArvAVL *arv = cria_ArvAVL();
+        int result = insere_lista_final(ha->itens[pos], arv, ddd);
+        if(result == 1) {
+            int resultInsereArv = insere_ArvAVL(arv, pessoa);
+            if(resultInsereArv == 1) {
+                ha->qtd++;
+                return 1;
+            }
+        }
         return 0;
     }
-    ha->qtd++;
-    return 1;
+    return 0;
 }
 
 int buscaHash_SemColisao(Hash *ha, int prefixo, ArvAVL *arv) {

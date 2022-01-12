@@ -1,3 +1,6 @@
+#ifndef ARVORE_AVL_H
+#define ARVORE_AVL_H
+
 struct dados {
     int numero;
     char nome[100];
@@ -17,3 +20,5 @@ void preOrdem_ArvAVL(ArvAVL *raiz);
 void emOrdem_ArvAVL(ArvAVL *raiz);
 void posOrdem_ArvAVL(ArvAVL *raiz);
 int consulta_ArvAVL(ArvAVL *raiz, int numero);
+
+#endif
