@@ -70,7 +70,10 @@ void preOrdem_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return;
     if(*raiz != NULL) {
-        printf("%d ", (*raiz)->pessoa.numero);
+        printf("Nome: %s \n", (*raiz)->pessoa.nome);
+        printf("Numero: %d \n", (*raiz)->pessoa.numero);
+        printf("Endereco: %s \n", (*raiz)->pessoa.endereco);
+        printf("\n");
         preOrdem_ArvAVL(&((*raiz)->esq));
         preOrdem_ArvAVL(&((*raiz)->dir));
     }
@@ -81,7 +84,10 @@ void emOrdem_ArvAVL(ArvAVL *raiz) {
         return;
     if(*raiz != NULL) {
         emOrdem_ArvAVL(&((*raiz)->esq));
-        printf("%d ", (*raiz)->pessoa.numero);
+        printf("Nome: %s \n", (*raiz)->pessoa.nome);
+        printf("Numero: %d \n", (*raiz)->pessoa.numero);
+        printf("Endereco: %s \n", (*raiz)->pessoa.endereco);
+        printf("\n");
         emOrdem_ArvAVL(&((*raiz)->dir));
     }
 }
@@ -92,7 +98,10 @@ void posOrdem_ArvAVL(ArvAVL *raiz) {
     if(*raiz != NULL) {
         posOrdem_ArvAVL(&((*raiz)->esq));
         posOrdem_ArvAVL(&((*raiz)->dir));
-        printf("%d ", (*raiz)->pessoa.numero);
+        printf("Nome: %s \n", (*raiz)->pessoa.nome);
+        printf("Numero: %d \n", (*raiz)->pessoa.numero);
+        printf("Endereco: %s \n", (*raiz)->pessoa.endereco);
+        printf("\n");
     }
 }
 

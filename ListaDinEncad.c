@@ -204,3 +204,15 @@ int busca_lista_ddd(Lista *li, int prefixo, ArvAVL *arv) {
     return 1;
   }
 }
+
+int imprimirLista(Lista *li) {
+  int existePessoa = 0;
+  Elem *no = *li;
+  while(no != NULL) {
+    if(altura_ArvAVL(no->arv) != 0 && existePessoa == 0)
+      existePessoa++;
+    emOrdem_ArvAVL(no->arv);
+    no = no->prox;
+  }
+  return existePessoa;
+}
