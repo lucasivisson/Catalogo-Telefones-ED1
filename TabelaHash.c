@@ -167,7 +167,6 @@ void imprimirTabela(int TABLE_SIZE, Hash *ha) {
         if(tamanho_lista(ha->itens[i]) > 0) {
             Elem *aux;
             aux = *ha->itens[i];
-            //printf("\n");
             printf("DDD: %d\n", aux->ddd.prefixo);
             int result = imprimirLista(ha->itens[i]);
             if(existePessoa == 0 && result != 0) {

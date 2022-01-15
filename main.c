@@ -888,17 +888,25 @@ int* gerar_telefones(ArvAVL *arv, int ddd){
     int i;
 
     printf("Sugestao de numeros: \n");
-    for(i = 0; i < 3; i++){
-        numero[i] = gerador_numero();
-        int res = consulta_ArvAVL(arv, numero[i]);
-
-        if(res == 1){ 
+    if(arv == NULL) {
+        for(i = 0; i < 3; i++){
             numero[i] = gerador_numero();
-        }else{
             printf("  %d - %d\n", i+1, numero[i]);
         }
+        return numero;
+    }else {
+        for(i = 0; i < 3; i++){
+            numero[i] = gerador_numero();
+            int res = consulta_ArvAVL(arv, numero[i]);
+
+            if(res == 1){ 
+                numero[i] = gerador_numero();
+            }else{
+                printf("  %d - %d\n", i+1, numero[i]);
+            }
+        }
+        return numero;
     }
-    return numero;
 }
 
 int validarDDD(int ddd) {
@@ -930,6 +938,51 @@ void gerarListaTabelaHash(Hash *ha) {
     }while(opcao != 3);
 }
 
+int inserirNumeroAleatorio(Hash *ha, int ddd) {
+    ArvAVL *arv6 = cria_ArvAVL();
+    int* telefone = malloc(3 * sizeof(int));
+
+    buscaHash_SemColisao(ha, ddd, arv6);
+    int op = 1;
+    do{
+        telefone = gerar_telefones(arv6, ddd);
+        printf("\n");
+        printf("Gostaria de cadastrar algum dos numeros?\n");
+        printf("  1 - Sim\n");
+        printf("  2 - Gerar novos numeros\n");
+        printf("  3 - Sair\n");
+        scanf(" %d", &op);
+
+        switch(op){
+            case 1:
+            {
+                int n;
+                printf("\n");
+                printf("Escolha um dos numeros gerados:\n");
+                for(int i = 0; i < 3; i++){
+                    printf("  %d - %d\n", i+1, telefone[i]);
+                }
+                scanf(" %d", &n);
+
+                int telefone2 = telefone[n-1];
+                return telefone2;
+            }
+            break;
+
+            case 2:
+                op = 2;
+            break;
+
+            case 3:
+                printf("Saindo...");
+            break;
+
+            default:
+                printf("Opcao selecionada nao e valida\n");
+        }
+    }while(op == 2);
+}
+
 int main() {
     Hash *ha = criaHash(1427);
     int escolha;
@@ -941,19 +994,36 @@ int main() {
         printf("2 - Buscar pessoa no catalogo pelo telefone\n");
         printf("3 - Remover pessoa do catalogo\n");
         printf("4 - Listar todos os numeros de telefone por DDD\n");
-        printf("5 - Gerar numeros nao cadastrados\n");
-        printf("6 - Gerar lista telefonica por DDD\n");
-        printf("7 - Sair\n");
+        printf("5 - Gerar lista telefonica por DDD\n");
+        printf("6 - Sair\n");
         scanf(" %d", &escolha);
 
         switch(escolha) {
             case 1:
             {
-                int ddd, numero;
-                printf("Digite o numero do DDD da pessoa a ser inserida: ");
+                int ddd, numero, escolhaNumero;
+                printf("Digite o numero do DDD da pessoa a ser inserida: \n");
                 scanf(" %d", &ddd);
-                printf("Digite o numero do telefone: ");
-                scanf(" %d", &numero);
+                do{
+                    printf("Voce deseja digitar o numero ou escolher um numero que ainda nao esteja cadastrado no programa?\n");
+                    printf("1 - Digitar um numero\n");
+                    printf("2 - Escolher um numero gerado\n");
+                    scanf("%d", &escolhaNumero);
+                    switch(escolhaNumero) {
+                        case 1:
+                            printf("Digite o numero do telefone: ");
+                            scanf(" %d", &numero);
+                            break;
+                        
+                        case 2:
+                            numero = inserirNumeroAleatorio(ha, ddd);
+                            break;
+
+                        default:
+                            printf("Opcao invalida, tente novamente!");
+                            break;
+                    }
+                }while(escolhaNumero != 1 && escolhaNumero != 2);
                 int resultInserir = inserir_ArvAVL_DDD(ddd, ha, numero);
                 if(resultInserir == 1) {
                     printf("Pessoa inserida com sucesso!\n");
@@ -1020,72 +1090,11 @@ int main() {
 
             case 5:
             {
-                ArvAVL *arv6 = cria_ArvAVL();
-                int* telefone = malloc(3 * sizeof(int));
-                int ddd;
-                
-                printf("Digite o DDD: ");
-                scanf("%d", &ddd);
-                printf("\n");
-
-                int res = buscaHash_SemColisao(ha, ddd, arv6);
-                if(res == 1){
-                    int op = 1;
-                    do{
-                       telefone = gerar_telefones(arv6, ddd);
-                        printf("\n");
-                        printf("Gostaria de cadastrar algum dos numeros?\n");
-                        printf("  1 - Sim\n");
-                        printf("  2 - Gerar novos numeros\n");
-                        printf("  3 - Sair\n");
-                        scanf(" %d", &op);
-
-                        switch(op){
-                            case 1:
-                            {
-                                int n;
-                                printf("\n");
-                                printf("Escolha um dos numeros gerados:\n");
-                                for(int i = 0; i < 3; i++){
-                                    printf("  %d - %d\n", i+1, telefone[i]);
-                                }
-                                scanf(" %d", &n);
-
-                                int telefone2 = telefone[n-1];
-                                int resultInserir = inserir_ArvAVL_DDD(ddd, ha, telefone2);
-                                 if(resultInserir == 1) {
-                                    printf("Pessoa inserida com sucesso!\n");
-                                }else{
-                                    printf("Erro ao inserir pessoa!\n");
-                                }
-                            }
-                            break;
-
-                            case 2:
-                                op = 2;
-                            break;
-
-                            case 3:
-                                printf("Saindo...");
-                            break;
-
-                            default:
-                               printf("Opcao selecionada nao e valida\n");
-                        }
-                    }while(op == 2);
-                }else{
-                    printf("Nao existem numeros cadastrados nesse DDD\n");
-                }
-                break;
-            }
-
-            case 6:
-            {
                 gerarListaTabelaHash(ha);
                 break;
             }
 
-            case 7:
+            case 6:
                 printf("Saindo...\n");
             break;
 
@@ -1093,26 +1102,6 @@ int main() {
                 printf("Opcao selecionada nao e valida\n");
         }
         printf("\n\n");
-    } while(escolha != 7);
-    /*
-    ArvAVL *arv = cria_ArvAVL();
-    ArvAVL *arv2 = cria_ArvAVL();
-    struct dados pessoa;
-    pessoa.numero = 997879611;
-    strcpy(pessoa.nome , "Lucas");
-    strcpy(pessoa.endereco , "Rua 8 casa 540 vila velha");
-    int insere = insere_ArvAVL(arv, pessoa);
-    printf("Inserindo pessoa em ArvoreAVL: %d\n", insere);
-    struct discagem ddd;
-    ddd.prefixo = 85;
-    strcpy(ddd.estado , "Ceara");
-    strcpy(ddd.regiao , "Fortaleza");
-    int insereComColisao = insereHash_SemColisao(ha, ddd, arv);
-    printf("Inserindo arvore na tabela hash: %d\n", insereComColisao);
-    int consultaHashListaArv = buscaHash_SemColisao(ha, 85, arv2);
-    printf("Consultando arvore na tabela hash: %d\n", consultaHashListaArv);
-    int consulta = consulta_ArvAVL(arv2, pessoa);
-    printf("Consultando pessoa em ArvoreAVL: %d\n", consulta);
-    */
+    } while(escolha != 6);
     return 0;
 }

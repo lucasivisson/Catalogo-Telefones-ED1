@@ -89,7 +89,6 @@ int insere_lista_final(Lista *li, ArvAVL *arv, struct discagem ddd){
     }
     aux->prox = no;
   }
-  printf("%d", no->ddd.prefixo);
   return 1;
 }
 
