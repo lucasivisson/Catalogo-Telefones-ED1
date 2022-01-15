@@ -24,6 +24,6 @@ int lista_vazia(Lista *li);
 int lista_cheia(Lista *li);
 int busca_lista_ddd(Lista *li, int prefixo, ArvAVL *arv);
 int busca_lista_pos(Lista *li, int pos, ArvAVL *arv);
-int imprimirLista(Lista *li);
+int imprimirListaNumero(Lista *li);
 
 #endif

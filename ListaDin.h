@@ -1,16 +1,12 @@
 #ifndef LISTA_DIN_H
 #define LISTA_DIN_H
 
-struct dados {
-    int numero;
-    char nome[100];
-    char endereco[100];
-};
+typedef struct elementoDin* ListaDin;
 
-typedef struct elemento* Lista;
+ListaDin* cria_lista_din();
+void libera_lista_din(ListaDin *li);
+int insere_lista_din_ordenada(ListaDin *li, struct dados pessoa);
+int tamanho_lista_din(ListaDin *li);
+int busca_lista_din_pos(ListaDin *li, int pos, struct dados *pessoa);
 
-Lista* cria_lista();
-void libera_lista(Lista *li);
-int insere_lista_ordenada(Lista *li, struct dados pessoa);
-int tamanho_lista(Lista *li);
-int busca_lista_pos(Lista *li, int pos, struct dados *pessoa);
+#endif

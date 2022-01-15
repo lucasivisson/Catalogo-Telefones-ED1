@@ -216,10 +216,12 @@ int imprimirListaNumero(Lista *li) {
   return existePessoa;
 }
 
-int imprimirListaNome(Lista *li) {
+/*
+int imprimirListaNome(Lista *li, ListaDin *liDin) {
   Elem *no = *li;
   while(no != NULL) {
-    //falta a logica
+    percorre_ArvAVL(no->arv, liDin);
     no = no->prox;
   }
 }
+*/

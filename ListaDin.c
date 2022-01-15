@@ -3,23 +3,23 @@
 #include "ListaDin.h" //inclui os prototipos
 
 //Definição do tipo lista
-struct elemento{
+struct elementoDin{
   struct pessoa dados;
-  struct elemento *prox;
+  struct elementoDin *prox;
 };
 
-typedef struct elemento Elem;
+typedef struct elementoDin ElemDin;
 
-Lista* cria_lista() {
-  Lista *li = (Lista *) malloc(sizeof(Lista));
+ListaDin* cria_lista_din() {
+  ListaDin *li = (ListaDin *) malloc(sizeof(ListaDin));
   if(li != NULL)
     *li = NULL;
   return li;
 }
 
-void libera_lista(Lista *li) {
+void libera_lista_din(ListaDin *li) {
   if(li != NULL){
-    Elem *no;
+    ElemDin *no;
     while((*li) != NULL){
       no = *li;
       *li = (*li)->prox;
@@ -29,11 +29,11 @@ void libera_lista(Lista *li) {
   }
 }
 
-int tamanho_lista(Lista *li){
+int tamanho_lista_din(ListaDin *li){
   if(li == NULL)
     return 0;
   int cont = 0;
-  Elem *no = *li;
+  ElemDin *no = *li;
   while(no != NULL){
     cont++;
     no = no->prox;
@@ -41,11 +41,11 @@ int tamanho_lista(Lista *li){
   return cont;
 }
 
-int insere_lista_ordenada(Lista *li, struct dados pessoa) {
+int insere_lista_din_ordenada(ListaDin *li, struct dados pessoa) {
   if(li == NULL)
     return 0;
-  Elem *no;
-  no = (Elem *) malloc(sizeof(Elem));
+  ElemDin *no;
+  no = (ElemDin *) malloc(sizeof(ElemDin));
   if(no == NULL)
     return 0;
   no->dados = pessoa;
@@ -54,7 +54,7 @@ int insere_lista_ordenada(Lista *li, struct dados pessoa) {
     *li = no;
     return 1;
   }else{
-    Elem *ant, *atual = *li;
+    ElemDin *ant, *atual = *li;
     char *strAtual = (char*) malloc(sizeof(char));
     char *strParametro = (char*) malloc(sizeof(char));
     strParametro = pessoa.nome;
@@ -77,10 +77,10 @@ int insere_lista_ordenada(Lista *li, struct dados pessoa) {
   }                   
 }
 
-int busca_lista_pos(Lista *li, int pos, struct dados *pessoa){
+int busca_lista_din_pos(ListaDin *li, int pos, struct dados *pessoa){
   if(li == NULL || pos <= 0)
     return 0;
-  Elem *no = *li;
+  ElemDin *no = *li;
   int i = 1;
   while(no != NULL && i < pos){
     no = no->prox;

@@ -168,7 +168,7 @@ void imprimirTabelaOrdenadaNumero(int TABLE_SIZE, Hash *ha) {
             Elem *aux;
             aux = *ha->itens[i];
             printf("DDD: %d\n", aux->ddd.prefixo);
-            int result = imprimirLista(ha->itens[i]);
+            int result = imprimirListaNumero(ha->itens[i]);
             if(existePessoa == 0 && result != 0) {
                 existePessoa++;
             }
@@ -181,16 +181,20 @@ void imprimirTabelaOrdenadaNumero(int TABLE_SIZE, Hash *ha) {
 }
 
 void imprimirTabelaOrdenadaNome(int TABLE_SIZE, Hash *ha) {
+    //ListaDin *liDin = cria_lista_din();
+    int i;
     printf("\n------------------------TABELA--------------------------\n");
     for(i = 0; i < TABLE_SIZE; i++) {
         if(tamanho_lista(ha->itens[i]) > 0) {
             Elem *aux;
             aux = *ha->itens[i];
             printf("DDD: %d\n", aux->ddd.prefixo);
-            int result = imprimirLista(ha->itens[i]);
+            /*
+            int result = imprimirListaNome(ha->itens[i], liDin);
             if(existePessoa == 0 && result != 0) {
                 existePessoa++;
             }
+            */
         }
     }
     printf("----------------------FIM TABELA------------------------\n");
