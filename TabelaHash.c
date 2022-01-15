@@ -160,7 +160,7 @@ int buscaHash_SemColisao(Hash *ha, int prefixo, ArvAVL *arv) {
     return 0;
 }
 
-void imprimirTabela(int TABLE_SIZE, Hash *ha) {
+void imprimirTabelaOrdenadaNumero(int TABLE_SIZE, Hash *ha) {
     int i, existePessoa = 0;
     printf("\n------------------------TABELA--------------------------\n");
     for(i = 0; i < TABLE_SIZE; i++) {
@@ -176,6 +176,22 @@ void imprimirTabela(int TABLE_SIZE, Hash *ha) {
     }
     if(existePessoa == 0) {
         printf("Nao existe pessoas cadastradas no catalogo.\n");
+    }
+    printf("----------------------FIM TABELA------------------------\n");
+}
+
+void imprimirTabelaOrdenadaNome(int TABLE_SIZE, Hash *ha) {
+    printf("\n------------------------TABELA--------------------------\n");
+    for(i = 0; i < TABLE_SIZE; i++) {
+        if(tamanho_lista(ha->itens[i]) > 0) {
+            Elem *aux;
+            aux = *ha->itens[i];
+            printf("DDD: %d\n", aux->ddd.prefixo);
+            int result = imprimirLista(ha->itens[i]);
+            if(existePessoa == 0 && result != 0) {
+                existePessoa++;
+            }
+        }
     }
     printf("----------------------FIM TABELA------------------------\n");
 }

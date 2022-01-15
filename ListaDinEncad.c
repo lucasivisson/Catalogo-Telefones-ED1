@@ -204,7 +204,7 @@ int busca_lista_ddd(Lista *li, int prefixo, ArvAVL *arv) {
   }
 }
 
-int imprimirLista(Lista *li) {
+int imprimirListaNumero(Lista *li) {
   int existePessoa = 0;
   Elem *no = *li;
   while(no != NULL) {
@@ -214,4 +214,12 @@ int imprimirLista(Lista *li) {
     no = no->prox;
   }
   return existePessoa;
+}
+
+int imprimirListaNome(Lista *li) {
+  Elem *no = *li;
+  while(no != NULL) {
+    //falta a logica
+    no = no->prox;
+  }
 }

@@ -7,12 +7,12 @@
 #include <time.h>
 
 int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
-    char nome[50];
+    char nome[100];
     printf("Digite o nome: ");
-    scanf(" %s", nome);
-    char endereco[50];
+    scanf(" %[^\n]s", nome);
+    char endereco[100];
     printf("Digite o endereço: ");
-    scanf(" %s", endereco);
+    scanf(" %[^\n]s", endereco);
 
     struct dados pessoa;
     pessoa.numero = numero;
@@ -927,7 +927,12 @@ void gerarListaTabelaHash(Hash *ha) {
         switch(opcao) {
             case 1:
             {
-                imprimirTabela(1427, ha);
+                imprimirTabelaOrdenadaNumero(1427, ha);
+                break;
+            }
+            case 2:
+            {
+                imprimirTabelaOrdenadaNome(1427, ha);
                 break;
             }
 
