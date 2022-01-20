@@ -1,3 +1,4 @@
+/*
 #ifndef LISTA_DIN_H
 #define LISTA_DIN_H
 
@@ -10,3 +11,4 @@ int tamanho_lista_din(ListaDin *li);
 int busca_lista_din_pos(ListaDin *li, int pos, struct dados *pessoa);
 
 #endif
+*/

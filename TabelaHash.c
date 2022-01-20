@@ -18,6 +18,7 @@ struct hash {
     Lista **itens;
 };
 
+// cria a tabela hash
 Hash* criaHash(int TABLE_SIZE) {
     Hash *ha = (Hash *) malloc(sizeof(Hash));
     if(ha != NULL) {
@@ -35,6 +36,7 @@ Hash* criaHash(int TABLE_SIZE) {
     return ha;
 }
 
+// libera a tabela hash
 void liberaHash(Hash *ha) {
     if(ha != NULL) {
         int i;
@@ -109,7 +111,8 @@ int valorString(char *str) {
     return valor;
 }
 
-int insereHash_SemColisao(Hash *ha, struct discagem ddd, struct dados pessoa) {
+// insere uma arvore na tabela hash dentro da lista encadeada
+int insereHash(Hash *ha, struct discagem ddd, struct dados pessoa) {
     if(ha == NULL || ha->qtd == ha->TABLE_SIZE)
         return 0;
     int chave = ddd.prefixo;
@@ -147,7 +150,8 @@ int insereHash_SemColisao(Hash *ha, struct discagem ddd, struct dados pessoa) {
     return 0;
 }
 
-int buscaHash_SemColisao(Hash *ha, int prefixo, ArvAVL *arv) {
+// busca uma arvore na tabela hash com base no prefixo ddd
+int buscaHash(Hash *ha, int prefixo, ArvAVL *arv) {
     if(ha == NULL)
         return 0;
     int pos = chaveDivisao(prefixo, ha->TABLE_SIZE);
@@ -160,6 +164,8 @@ int buscaHash_SemColisao(Hash *ha, int prefixo, ArvAVL *arv) {
     return 0;
 }
 
+/* varre toda a tabela hash e imprime os dados das arvores das listas encadeadas que estao 
+na tabela hash ordenado por numero*/
 void imprimirTabelaOrdenadaNumero(int TABLE_SIZE, Hash *ha) {
     int i, existePessoa = 0;
     printf("\n------------------------TABELA--------------------------\n");
@@ -180,6 +186,8 @@ void imprimirTabelaOrdenadaNumero(int TABLE_SIZE, Hash *ha) {
     printf("----------------------FIM TABELA------------------------\n");
 }
 
+/* varre toda a tabela hash e imprime os dados das arvores das listas encadeadas que estao 
+na tabela hash ordenado por nome*/
 void imprimirTabelaOrdenadaNome(int TABLE_SIZE, Hash *ha) {
     //ListaDin *liDin = cria_lista_din();
     int i;

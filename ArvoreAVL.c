@@ -12,6 +12,7 @@ struct NO {
     struct NO *dir;
 };
 
+// funcao que cria uma arvore avl
 ArvAVL* cria_ArvAVL() {
     ArvAVL *raiz = (ArvAVL*) malloc(sizeof(ArvAVL));
     if(raiz != NULL)
@@ -19,6 +20,7 @@ ArvAVL* cria_ArvAVL() {
     return raiz;
 }
 
+// funcao que libera o no de uma arvore avl
 void libera_NO(struct NO *no) {
     if(no == NULL)
         return;
@@ -28,6 +30,7 @@ void libera_NO(struct NO *no) {
     no = NULL;
 }
 
+// funcao que libera toda a arvore avl
 void libera_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return;
@@ -35,6 +38,7 @@ void libera_ArvAVL(ArvAVL *raiz) {
     free(raiz);
 }
 
+// funcao que verifica se a arvore esta vazia
 int estaVazia_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return 1;
@@ -43,6 +47,7 @@ int estaVazia_ArvAVL(ArvAVL *raiz) {
     return 0;
 }
 
+// funcao que verifica se a altura de uma arvore
 int altura_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return 0;
@@ -56,6 +61,7 @@ int altura_ArvAVL(ArvAVL *raiz) {
         return (alt_dir + 1);
 }
 
+// funcao que verifica se a quantidade de nos que uma arvore tem
 int totalNO_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return 0;
@@ -66,6 +72,7 @@ int totalNO_ArvAVL(ArvAVL *raiz) {
     return (alt_esq + alt_dir + 1);
 }
 
+// funcao que imprime a arvore avl no formato pre ordem
 void preOrdem_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return;
@@ -79,6 +86,7 @@ void preOrdem_ArvAVL(ArvAVL *raiz) {
     }
 }
 
+// funcao que imprime a arvore avl no formato em ordem
 void emOrdem_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return;
@@ -92,6 +100,7 @@ void emOrdem_ArvAVL(ArvAVL *raiz) {
     }
 }
 
+// funcao que imprime a arvore avl no formato pos ordem
 void posOrdem_ArvAVL(ArvAVL *raiz) {
     if(raiz == NULL)
         return;
@@ -105,15 +114,18 @@ void posOrdem_ArvAVL(ArvAVL *raiz) {
     }
 }
 
+// funcao que imprime a arvore avl no formato pre ordem
 int consulta_ArvAVL(ArvAVL *raiz, int numero) {
     if(raiz == NULL)
         return 0;
     struct NO *atual = *raiz;
     while(atual != NULL) {
         if(numero == atual->pessoa.numero) {
-            printf("%s\n", atual->pessoa.nome);
-            printf("%s\n", atual->pessoa.endereco);
-            printf("%d\n", atual->pessoa.numero);
+            printf("\n");
+            printf("Pessoa encontrada:\n");
+            printf("Nome: %s\n", atual->pessoa.nome);
+            printf("Endereco: %s\n", atual->pessoa.endereco);
+            printf("Numero: %d\n", atual->pessoa.numero);
             return 1;
         }
         if(numero > atual->pessoa.numero)
@@ -146,6 +158,7 @@ int maior(int x, int y) {
         return y;
 }
 
+// rotaciona a arvore avl para a direita duas vezes
 void RotacaoLL(ArvAVL *raiz) {
     struct NO *no;
     no = (*raiz)->esq;
@@ -156,6 +169,7 @@ void RotacaoLL(ArvAVL *raiz) {
     (*raiz) = no;
 }
 
+// rotaciona a arvore avl para a esquerda duas vezes
 void RotacaoRR(ArvAVL *raiz) {
     struct NO *no;
     no = (*raiz)->dir;
@@ -166,16 +180,19 @@ void RotacaoRR(ArvAVL *raiz) {
     (*raiz) = no;
 }
 
+// rotaciona a arvore avl para a esquerda e depois para a direita
 void RotacaoLR(ArvAVL *raiz) {
     RotacaoRR(&(*raiz)->esq);
     RotacaoLL(raiz);
 }
 
+// rotaciona a arvore avl para a direita e depois para a esquerda
 void RotacaoRL(ArvAVL *raiz) {
     RotacaoLL(&(*raiz)->dir);
     RotacaoRR(raiz);
 }
 
+// insere uma pessoa na arvore avl
 int insere_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
     int res;
     if(*raiz == NULL) { //arvore vazia ou no folha
@@ -221,6 +238,7 @@ int insere_ArvAVL(ArvAVL *raiz, struct dados pessoa) {
     return res;
 }
 
+// procura o menor no
 struct NO* procuraMenor(struct NO* atual) {
     struct NO *no1 = atual;
     struct NO *no2 = atual->esq;
@@ -231,6 +249,7 @@ struct NO* procuraMenor(struct NO* atual) {
     return no1;
 }
 
+// remove uma pessoa da arvore avl
 int remove_ArvAVL(ArvAVL *raiz, int numero) {
     if(*raiz == NULL) { //valor nao existe
         printf("valor nao existe!!\n");
@@ -281,6 +300,7 @@ int remove_ArvAVL(ArvAVL *raiz, int numero) {
     return res;
 }
 
+// metodo que percorre a arvore avl inteira e adiciona em uma lista ordenada
 /*
 void percorre_ArvAVL(ArvAVL *raiz, ListaDin *li) {
     if(raiz == NULL)

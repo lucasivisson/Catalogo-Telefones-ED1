@@ -12,6 +12,7 @@ struct elemento{
 
 typedef struct elemento Elem;
 
+// cria uma lista encadeada que recebe arvores nela
 Lista* cria_lista() {
   Lista *li = (Lista *) malloc(sizeof(Lista));
   if(li != NULL)
@@ -19,6 +20,7 @@ Lista* cria_lista() {
   return li;
 }
 
+// libera a lista encadeada
 void libera_lista(Lista *li) {
   if(li != NULL){
     Elem *no;
@@ -31,6 +33,7 @@ void libera_lista(Lista *li) {
   }
 }
 
+// verifica o tamanho da lista encadeada
 int tamanho_lista(Lista *li){
   if(li == NULL)
     return 0;
@@ -43,10 +46,12 @@ int tamanho_lista(Lista *li){
   return cont;
 }
 
+// verifica se a lista esta cheia
 int lista_cheia(Lista *li){
   return 0;
 }
 
+// verifica se a lista esta vazia
 int lista_vazia(Lista *li){
   if(li == NULL)
     return 1;
@@ -55,6 +60,7 @@ int lista_vazia(Lista *li){
   return 0;
 }
 
+// insere uma arvore no inicio da lista
 int insere_lista_inicio(Lista *li, ArvAVL *arv, struct discagem ddd){
   if(li == NULL)
     return 0;
@@ -69,6 +75,7 @@ int insere_lista_inicio(Lista *li, ArvAVL *arv, struct discagem ddd){
   return 1;
 }
 
+// insere uma arvore no final da lista
 int insere_lista_final(Lista *li, ArvAVL *arv, struct discagem ddd){
   if(li == NULL)
     return 0;
@@ -92,6 +99,7 @@ int insere_lista_final(Lista *li, ArvAVL *arv, struct discagem ddd){
   return 1;
 }
 
+// insere uma arvore de forma ordenada na lista
 int insere_lista_ordenada(Lista *li, ArvAVL *arv, struct discagem ddd) {
   if(li == NULL)
     return 0;
@@ -122,6 +130,7 @@ int insere_lista_ordenada(Lista *li, ArvAVL *arv, struct discagem ddd) {
   }
 }
 
+// remove a arvore do inicio da lista
 int remove_lista_inicio(Lista *li){
   if(li == NULL)
     return 0;
@@ -133,6 +142,7 @@ int remove_lista_inicio(Lista *li){
   return 1;
 }
 
+// remove a arvore do final da lista
 int remove_lista_final(Lista *li){
   if(li == NULL)
     return 0;
@@ -153,6 +163,7 @@ int remove_lista_final(Lista *li){
   return 1;
 }
 
+// remove a arvore com base no prefixo do ddd enviado
 int remove_lista(Lista *li, int prefixo){
   if(li == NULL)
     return 0;
@@ -173,6 +184,7 @@ int remove_lista(Lista *li, int prefixo){
   return 1;
 }
 
+// busca uma arvore na lista com base em uma posicao
 int busca_lista_pos(Lista *li, int pos, ArvAVL *arv){
   if(li == NULL || pos <= 0)
     return 0;
@@ -190,6 +202,7 @@ int busca_lista_pos(Lista *li, int pos, ArvAVL *arv){
   }
 }
 
+// busca uma arvore na lista com base no ddd
 int busca_lista_ddd(Lista *li, int prefixo, ArvAVL *arv) {
   if(li == NULL) return 0;
   Elem *no = *li;
@@ -204,6 +217,7 @@ int busca_lista_ddd(Lista *li, int prefixo, ArvAVL *arv) {
   }
 }
 
+// imprime os dados da arvore da lista em ordem
 int imprimirListaNumero(Lista *li) {
   int existePessoa = 0;
   Elem *no = *li;
@@ -216,6 +230,7 @@ int imprimirListaNumero(Lista *li) {
   return existePessoa;
 }
 
+// imprime os dados da arvore da lista ordenado por nome
 /*
 int imprimirListaNome(Lista *li, ListaDin *liDin) {
   Elem *no = *li;

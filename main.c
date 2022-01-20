@@ -6,6 +6,7 @@
 #include "TabelaHash.h"
 #include <time.h>
 
+// funcao responsavel por inserir os dados na tabela hash.
 int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
     char nome[100];
     printf("Digite o nome: ");
@@ -23,7 +24,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 85:
         {
             struct discagem ddd = {85, "Ceará", "Fortaleza e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -34,7 +35,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 11:
         {
             struct discagem ddd = {11, "São Paulo", "São Paulo e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -46,7 +47,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 12:
         {
             struct discagem ddd = {12, "São Paulo", "são José do Campos e Taubaté"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -58,7 +59,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 13:
         {
             struct discagem ddd = {13, "São Paulo", "Santos e Baixada Santista"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -70,7 +71,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 14:
         {
             struct discagem ddd = {14, "São Paulo", "Bauru e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -82,7 +83,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
             case 15:
         {
             struct discagem ddd = {15, "São Paulo", "Itapetininga, Itapeva e Sorocaba"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -94,7 +95,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 16:
         {
             struct discagem ddd = {16, "São Paulo", "Araraquara, Franca, Ribeirão Preto e São Carlos"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -106,7 +107,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 17:
         {
             struct discagem ddd = {17, "São Paulo", "Catadunva, Barretos e São José do Rio Preto"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -118,7 +119,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 18:
         {
             struct discagem ddd = {18, "São Paulo", "Presidente Prudente e Araçatuba"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -130,7 +131,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
          case 19:
         {
             struct discagem ddd = {19, "São Paulo", "Americana e Campinas"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -142,7 +143,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 21:
         {
             struct discagem ddd = {21, "Rio de Janeiro", "Rio de Janeiro e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -154,7 +155,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 22:
         {
             struct discagem ddd = {22, "Rio de Janeiro", "Cabo Frio e Nova Friburgo"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -166,7 +167,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 24:
         {
             struct discagem ddd = {24, "Rio de Janeiro", "Angras dos Reis e Volta Redonda"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -178,7 +179,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 27:
         {
             struct discagem ddd = {27, " Espirito Santo", "Vitoria e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -190,7 +191,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 28:
         {
             struct discagem ddd = {28, "Espirito Santo", "Cachoeiro de Itapemirim, Castelo e Marataizes"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -202,7 +203,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 31:
         {
             struct discagem ddd = {31, "Minas Gerais", "Belo Horizonte e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -214,7 +215,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 32:
         {
             struct discagem ddd = {32, "Minas Gerais", "Juiz de Fora e Barbacena"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -226,7 +227,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 33:
         {
             struct discagem ddd = {33, "Minas Gerais", "Governador Valadares, Teofilo Otoni, Caratinga e Manhuaçu"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -238,7 +239,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 34:
         {
             struct discagem ddd = {34, "Minas Gerais", "Uberlandia e Uberaba"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -250,7 +251,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 35:
         {
             struct discagem ddd = {35, "Minas Gerais", "Poços de Calda e Varginha"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -262,7 +263,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 37:
         {
             struct discagem ddd = {37, "Minas Gerais", "Divinopolis e Itauna"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -274,7 +275,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 38:
         {
             struct discagem ddd = {38, "Minas Gerais", "Diamantina, Monstes Claros e unai"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -286,7 +287,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 41:
         {
             struct discagem ddd = {41, "Parana", "Curitiba e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -298,7 +299,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 42:
         {
             struct discagem ddd = {42, "Parana", "Ponta Grossa e Guarapuava"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -310,7 +311,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 43:
         {
             struct discagem ddd = {43, "Parana", "Apucarana e Londrina"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -322,7 +323,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 44:
         {
             struct discagem ddd = {44, "Parana", "Maringa, Campo Mourao e Umuarama"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -334,7 +335,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 45:
         {
             struct discagem ddd = {45, "Parana", "Cascavel e Foz do Iguaçu"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -346,7 +347,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 46:
         {
             struct discagem ddd = {46, "Parana", "Francisco Beltrao e Pato Branco"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -358,7 +359,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 47:
         {
             struct discagem ddd = {47, "Santa Catarina", "Balneário, Blumenau, Itajai e Joinville"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -370,7 +371,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 48:
         {
             struct discagem ddd = {48, "Santa Catarina", "Florianopolis e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -382,7 +383,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 49:
         {
             struct discagem ddd = {49, "Santa Catarina", "Caçador e Chapeco"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -394,7 +395,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 51:
         {
             struct discagem ddd = {51, "Rio Grande do Sul", "Porto Alegre e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -406,7 +407,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 53:
         {
             struct discagem ddd = {53,  "Rio Grande do Sul", "Pelotas e Rio Grande"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -418,7 +419,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 54:
         {
             struct discagem ddd = {54,  "Rio Grande do Sul", "Caxias do Sul e Passo Fundo"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -430,7 +431,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 55:
         {
             struct discagem ddd = {55,  "Rio Grande do Sul", "Santa Maria, Santana do livramento, Santo Angelo e Uruguaiana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -442,7 +443,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 61:
         {
             struct discagem ddd = {61,  "Distrito Federal", "Distrito Federal"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -454,7 +455,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 62:
         {
             struct discagem ddd = {62,  "Goias", "Goiania e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -465,7 +466,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 63:
         {
             struct discagem ddd = {63, "Tocatins", "Tocantins"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -477,7 +478,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 64:
         {
             struct discagem ddd = {64, "Goias", "Caldas Novas, Catalao,Itumbiara e Rio Verde"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -488,7 +489,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 65:
         {
             struct discagem ddd = {65, "Mato Grosso", "Cuiaba e Região"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -500,7 +501,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 66:
         {
             struct discagem ddd = {66, "Mato Grosso", "Rondonopolis e Sinop"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -512,7 +513,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 67:
         {
             struct discagem ddd = {67, "Mato Grosso do Sul", "Mato Grosso do Sul"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -524,7 +525,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
        case 68:
         {
             struct discagem ddd = {68, "Acre", "Acre"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -535,7 +536,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 69:
         {
             struct discagem ddd = {69, "Rondonia", "Rondonia"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -547,7 +548,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 71:
         {
             struct discagem ddd = {71, "Bahia", "Salvador e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -558,7 +559,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 73:
         {
             struct discagem ddd = {73, "Bahia", "Ilheus e Itabuna"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -570,7 +571,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
        case 74:
         {
             struct discagem ddd = {74, "Bahia", "Juazeiro e Irecer"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -582,7 +583,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 75:
         {
             struct discagem ddd = {75, "Bahia", "Feira de Santana e Alagoinhas"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -593,7 +594,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 77:
         {
             struct discagem ddd = {77, "Bahia", "Vitoria da conquista e Barreiras"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -604,7 +605,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 79:
         {
             struct discagem ddd = {79, "Sergipe", "Sergipe"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -615,7 +616,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 81:
         {
             struct discagem ddd = {81, "Pernambuco", "Recife e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -626,7 +627,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 82:
         {
             struct discagem ddd = {82, "Alagoas", "Alagoas"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -637,7 +638,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 83:
         {
             struct discagem ddd = {83, "Paraiba", "Paraiba"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -648,7 +649,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 84:
         {
             struct discagem ddd = {84, "Rio Grande do Norte", "Rio Grande do Norte"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -659,7 +660,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 86:
         {
             struct discagem ddd = {86, "Piaui", "Teresina e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -670,7 +671,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 87:
         {
             struct discagem ddd = {87, "Pernambuco", "Petrolina e Serra Talhada"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -681,7 +682,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 88:
         {
             struct discagem ddd = {88, "Ceara", "Sobral e Juazeiro do Norte"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -692,7 +693,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 89:
         {
             struct discagem ddd = {89, "Piaui", "Picos e Floriano"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -703,7 +704,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 91:
         {
             struct discagem ddd = {91, "Para", "Belem e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -715,7 +716,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 92:
         {
             struct discagem ddd = {92, "Amazonas", "Manaus e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -727,7 +728,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 93:
         {
             struct discagem ddd = {93, "Para", "Santarem e Altamira"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -739,7 +740,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 94:
         {
             struct discagem ddd = {94, "Para", "Santarem e Altamira"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -751,7 +752,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 95:
         {
             struct discagem ddd = {95, "Roraima", "Roraima"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -762,7 +763,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 96:
         {
             struct discagem ddd = {96, "Amapa", "Amapa"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -773,7 +774,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 97:
         {
             struct discagem ddd = {97, "Amazonas", "Abrangencia Interior do Estado"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -784,7 +785,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 98:
         {
             struct discagem ddd = {98, "Maranhao", "São Luis e Região Metropolitana"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -795,7 +796,7 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
         case 99:
         {
             struct discagem ddd = {99, "Maranhao", "Caxias, condo e imperatriz"};
-            int inserePessoaTabelaHash = insereHash_SemColisao(ha, ddd, pessoa);
+            int inserePessoaTabelaHash = insereHash(ha, ddd, pessoa);
             if(inserePessoaTabelaHash == 1)
                 return 1;
             else{
@@ -808,8 +809,9 @@ int inserir_ArvAVL_DDD(int ddd, Hash *ha, int numero) {
     }
 }
 
+// funcao responsavel por buscar os dados de uma pessoa na tabela hash.
 int busca_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arv2) {
-    int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arv2);
+    int consultaHashListaArv = buscaHash(ha, ddd, arv2);
     if(consultaHashListaArv == 1) {
         int resultConsulta = consulta_ArvAVL(arv2, numero);
         if(resultConsulta == 1)
@@ -818,8 +820,9 @@ int busca_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arv2) {
     return 0;
 }
 
+// funcao responsavel por excluir uma pessoa da tabela hash
 int excluiPessoa_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arvExclusao) {
-    int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arvExclusao);
+    int consultaHashListaArv = buscaHash(ha, ddd, arvExclusao);
     if(consultaHashListaArv == 1) {
         int resultAlturaAntes = altura_ArvAVL(arvExclusao);
         int resultExclusao = remove_ArvAVL(arvExclusao, numero);
@@ -833,8 +836,9 @@ int excluiPessoa_ArvAVL(Hash *ha, int ddd, int numero, ArvAVL *arvExclusao) {
     return 0;
 }
 
+// funcao responsavel por imprimir os dados da pessoa escolhida em diferentes formas
 int impressao_ArvAVL(Hash *ha, int ddd, ArvAVL *arv3){
-    int consultaHashListaArv = buscaHash_SemColisao(ha, ddd, arv3);
+    int consultaHashListaArv = buscaHash(ha, ddd, arv3);
     if (consultaHashListaArv == 1){
         int resposta;
 
@@ -883,6 +887,7 @@ int gerador_numero(){
 	return n;   
 }
 
+// funcao que gera numeros de telefone validos e que n estejam cadastrados no sistema ainda
 int* gerar_telefones(ArvAVL *arv, int ddd){
     int* numero = malloc(3 * sizeof(int));
     int i;
@@ -909,6 +914,7 @@ int* gerar_telefones(ArvAVL *arv, int ddd){
     }
 }
 
+// funcao para validar ddd
 int validarDDD(int ddd) {
     if(ddd == 11 || ddd == 12 || ddd == 13 || ddd == 14 || ddd == 15 || ddd == 16 || ddd == 17 || ddd == 18 || ddd == 19 || ddd == 21 || ddd == 22 || ddd == 24 || ddd == 27 || ddd == 28|| ddd == 31 || ddd == 32 || ddd == 33 || ddd == 34 || ddd == 35 || ddd == 37 || ddd == 38 || ddd == 41 || ddd == 42 || ddd == 43 || ddd == 44 || ddd == 45 || ddd == 46 || ddd == 47 || ddd == 48 || ddd == 51 || ddd == 53 || ddd == 54 || ddd == 55 || ddd == 61 || ddd == 62 || ddd == 63 || ddd == 64 || ddd == 65 || ddd == 66 || ddd == 67 || ddd == 68 || ddd == 69 || ddd == 71 || ddd == 73 || ddd == 74 || ddd == 75 || ddd == 77 || ddd == 79 || ddd == 81 || ddd == 82 || ddd == 83 || ddd == 84 || ddd == 85 || ddd == 86 || ddd == 87 || ddd == 88 || ddd == 89 || ddd == 91 || ddd == 92 || ddd == 93 || ddd == 94 || ddd == 95 || ddd == 96 || ddd == 97 || ddd == 98 || ddd == 99) {
         return 1;
@@ -916,6 +922,7 @@ int validarDDD(int ddd) {
     return 0;
 }
 
+// funcao que gera uma lista ordenada por numero e nome dos dados cadastrados no sistema
 void gerarListaTabelaHash(Hash *ha) {
     int opcao;
     do{
@@ -935,6 +942,10 @@ void gerarListaTabelaHash(Hash *ha) {
                 imprimirTabelaOrdenadaNome(1427, ha);
                 break;
             }
+            case 3:
+            {
+                break;
+            }
 
             default:
                 printf("Escolha uma opcao valida.\n");
@@ -943,11 +954,12 @@ void gerarListaTabelaHash(Hash *ha) {
     }while(opcao != 3);
 }
 
+// funcao que gera telefones e o usuario escolho um deles para cadastrar no sistema
 int inserirNumeroAleatorio(Hash *ha, int ddd) {
     ArvAVL *arv6 = cria_ArvAVL();
     int* telefone = malloc(3 * sizeof(int));
 
-    buscaHash_SemColisao(ha, ddd, arv6);
+    buscaHash(ha, ddd, arv6);
     int op = 1;
     do{
         telefone = gerar_telefones(arv6, ddd);
@@ -1009,6 +1021,11 @@ int main() {
                 int ddd, numero, escolhaNumero;
                 printf("Digite o numero do DDD da pessoa a ser inserida: \n");
                 scanf(" %d", &ddd);
+                int resultDDD = validarDDD(ddd);
+                if(resultDDD != 1) {
+                    printf("Digite um DDD valido\n");
+                    break;
+                }
                 do{
                     printf("Voce deseja digitar o numero ou escolher um numero que ainda nao esteja cadastrado no programa?\n");
                     printf("1 - Digitar um numero\n");
@@ -1025,7 +1042,7 @@ int main() {
                             break;
 
                         default:
-                            printf("Opcao invalida, tente novamente!");
+                            printf("Opcao invalida, tente novamente!\n");
                             break;
                     }
                 }while(escolhaNumero != 1 && escolhaNumero != 2);
@@ -1089,6 +1106,11 @@ int main() {
 
                 printf("Digite o numero do DDD:\n");
                 scanf(" %d", &ddd);
+                int resultDDD = validarDDD(ddd);
+                if(resultDDD != 1) {
+                    printf("Digite um DDD valido\n");
+                    break;
+                }
                 impressao_ArvAVL(ha, ddd, arv4);
                 break;
             }

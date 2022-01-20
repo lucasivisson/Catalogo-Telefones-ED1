@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include "ListaDin.h" //inclui os prototipos
@@ -10,6 +11,7 @@ struct elementoDin{
 
 typedef struct elementoDin ElemDin;
 
+// cria uma lista encadeada simples
 ListaDin* cria_lista_din() {
   ListaDin *li = (ListaDin *) malloc(sizeof(ListaDin));
   if(li != NULL)
@@ -17,6 +19,7 @@ ListaDin* cria_lista_din() {
   return li;
 }
 
+// libera a lista encadeada
 void libera_lista_din(ListaDin *li) {
   if(li != NULL){
     ElemDin *no;
@@ -29,6 +32,7 @@ void libera_lista_din(ListaDin *li) {
   }
 }
 
+// verifica o tamanho da lista encadeada
 int tamanho_lista_din(ListaDin *li){
   if(li == NULL)
     return 0;
@@ -41,6 +45,7 @@ int tamanho_lista_din(ListaDin *li){
   return cont;
 }
 
+// insere uma pessoa na lista encadeada
 int insere_lista_din_ordenada(ListaDin *li, struct dados pessoa) {
   if(li == NULL)
     return 0;
@@ -77,6 +82,7 @@ int insere_lista_din_ordenada(ListaDin *li, struct dados pessoa) {
   }                   
 }
 
+// busca uma pessoa pela posicao na lista encadeada
 int busca_lista_din_pos(ListaDin *li, int pos, struct dados *pessoa){
   if(li == NULL || pos <= 0)
     return 0;
@@ -93,3 +99,4 @@ int busca_lista_din_pos(ListaDin *li, int pos, struct dados *pessoa){
     return 1;
   }
 }
+*/
